@@ -1,0 +1,60 @@
+{% extends "crypto/base.html" %}
+{% load static %}
+
+{% block title %}Decrypt Messages | Semes{% endblock %}
+
+{% block content %}
+    <div class="card text-center  " style="background-color:#f0ebeb; width: 90%; margin: auto; margin-top: 100px;">
+    <div class="card-body">
+    <p class="card-text">
+      <em>Once you receive a message a decryption interface will pop up !!</em><br>
+      <em>--- then ---</em><br>
+      <em>Scroll Down to view your text after decrypting!</em>
+    </p>
+    </div>
+    </div>
+
+{% for mes in mess %}
+    <div>
+        <form method="post">
+            {% csrf_token %}
+    <div class="card text-center  " style="width: 90%; margin: auto; margin-top: 60px; background-color: #fffee8;">
+        <div class="card-header"><h3>Sender: {{ mes.sender.email }}</h3></div>
+      <div class="card-body">
+        <div class="row" style="width: 90%; margin: auto; ">
+        <div class="card text-center border border-primary shadow-0 " style="max-width: 50%;" >
+      <div class="card-header">Cipher Text</div>
+      <div class="card-body">
+        <textarea name="tad" id="public" class="form-control" style="min-width: 100%" rows="5">
+            {{ mes.Message }}
+        </textarea>
+      </div>
+    </div>
+        <div class="card text-center border border-primary shadow-0 " style="max-width: 50%;">
+      <div class="card-header">Enter Private Key To Decrypt your Message</div>
+      <div class="card-body">
+        <textarea name="pr" id="private" class="form-control" style="min-width: 100%" rows="5" required="Enter your key">
+        </textarea>
+      </div>
+    </div>
+            <button name="de" class="btn btn-success" style="margin-top: 10px;">Decrypt Message</button>
+    </div>
+      </div>
+        <div class="card-footer"><strong>Enter Correct Private Key To View Your Message!!</strong></div>
+    </div>
+        </form>
+    </div>
+    <br>
+    <div class="card" style="max-width: 90%; margin: auto; background-color: #fffee8;">
+      <div class="card-header">Plain Text</div>
+      <div class="card-body">
+        <p class="card-text">
+          {{tf}}
+        </p>
+      </div>
+    </div>
+    <br>
+    <hr style="width: 90%; margin: auto; color: black;">
+    <br>
+    {% endfor %}
+{% endblock %}

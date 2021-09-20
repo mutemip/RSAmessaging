@@ -1,0 +1,43 @@
+{% extends 'crypto/base.html' %}
+{% load static %}
+
+
+
+{% block title %}Generate Keys | Semes{% endblock %}
+
+
+
+{% block content %}
+<div class="card text-center" style="max-width: 90%; margin: auto; padding: 10px; background-color: #fffee8; margin-top: 80px;">
+  <div class="card-header"><h2>Copy Public Key and paste it in Register form. Don't forget to keep a copy of your <strong style="color: #721c24">PRIVATE KEY</strong> in a safe place</h2></div>
+  <div class="card-body">
+        <form method="post">
+    {% csrf_token %}
+    <div class="row">
+    <div class="card text-center border border-primary shadow-0 " style="max-width: 50%;" >
+  <div class="card-header">Public Key</div>
+  <div class="card-body">
+    <textarea name="pb" id="public" class="form-control" style="min-width: 100%" rows="5">
+      {{ public_key }}
+    </textarea>
+
+    <button id="button1" type="button" class="btn btn-outline-success" onclick="copy('#public')" style="margin-top: 10px;">Copy Public Key</button>
+  </div>
+</div>
+    <div class="card text-center border border-primary shadow-0 " style="max-width: 50%;">
+  <div class="card-header">Private Key</div>
+  <div class="card-body">
+    <textarea name="pr" id="private" class="form-control" style="min-width: 100%" rows="5">
+      {{ private_key }}
+    </textarea>
+
+    <button id="button2" type="button" class="btn btn-outline-success" onclick="copy('#private')" style="margin-top: 10px;">Copy Private Key</button>
+  </div>
+</div>
+        <button class="btn btn-success" name="gen" style="margin-top: 10px;">Generate Keys</button>
+</div>
+</form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "crypto/base.html" %}
+{% load static %}
+
+{% block title %}About | Semes{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-height: 100%; width: 90%; margin: auto; padding: 150px;">
+  <div class="card-header">User manual</div>
+  <div class="card-body">
+    <h5 class="card-title">How to use SEMES</h5>
+    <p class="card-text">
+      <ul style="list-style-type:square;">
+      <li>Register as a user by filling your details to register form and generate your keys in the process</li>
+      <li> To generate keys, click on generate keys button and copy public key to register form and keep private key safe</li>
+      <li>Submit your register details</li>
+      <li>Log in to the system</li>
+      <li>You will have access to compose message and encrypt it</li>
+      <li>To decrypt your messages send by your friends, go to inbox page and use your private key to decrypt it to plain text</li>
+  </ul>
+    </p>
+      <hr>
+    <br>
+      <p>Click here to Compose a message</p>
+    <button type="button" class="btn btn-success"><a href="{% url 'message' %}" style="text-decoration: none; color: white;">Compose Message</a> </button> <p> OR</p> <button type="button" class="btn btn-success"><a href="{% url 'message' %}" style="text-decoration: none; color: white;">View Inbox</a></button>
+  </div>
+</div>
+{% endblock %}

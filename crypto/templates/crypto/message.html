@@ -1,0 +1,40 @@
+{% extends 'crypto/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Compose Message | Semes{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-width: 90%; margin: auto; padding: 10px; background-color: #fffee8; margin-top: 100px">
+  <div class="card-header text-center"><h2 class="label">Compose Message and select your recipient</h2></div>
+  <div class="card-body">
+      	<form method="post">
+		{% csrf_token %}
+            <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="field">
+            <label class="label">Receiver:</label>
+            <div class="control" >
+                {% render_field form.receiver class="input"%}
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Message:</label>
+            <div class="control">
+                {% render_field form.Message rows="5" class="textarea" %}
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+              </div>
+            <button class="btn btn-success" type="submit" name="enc" style="margin-top: 10px;">Encrypt & Send</button>
+    </div>
+      </div>
+          </div>
+  </section>
+        </form>
+  </div>
+</div>
+{% endblock %}

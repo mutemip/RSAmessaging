@@ -1,0 +1,17 @@
+{% extends 'crypto/base.html' %}
+{% load static %}
+
+{% block title %}Home | Semes{% endblock %}
+
+{% block content %}
+    <img src="{% static "images/img_band_la.jpg" %}" style="width: 100%; height: 100%;">
+    <div class="card text-center " style="padding-top: -50%;">
+  <div class="card-body">
+    <p class="card-text">
+      To get started click here to read user system user manual
+    </p>
+
+    <button type="button" class="btn btn-success"><a href="{% url "about" %}" style="color: white; text-decoration: none;">System Manual</a> </button>
+  </div>
+</div>
+{% endblock %}

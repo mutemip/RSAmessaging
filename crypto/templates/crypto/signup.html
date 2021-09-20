@@ -1,0 +1,65 @@
+{% extends "crypto/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Register | Semes{% endblock %}
+
+{% block content %}
+    <form action="" method="post" style=" background-color: #FEFCE8; width: 90%; margin: auto; padding: 10px; margin-top: 100px; border-radius: 5px;">
+{% csrf_token %}
+        <h2 class="text-center">Register</h2>
+        <h1 class="text-center"><em>Semes</em></h1>
+    <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="field">
+            <label class="label">First Name:</label>
+            <div class="control" >
+                {% render_field form.firstname class="input"%}
+            </div>
+          </div>
+            <div class="field">
+            <label class="label">Last Name:</label>
+            <div class="control" >
+                {% render_field form.lastname class="input"%}
+            </div>
+          </div>
+            <div class="field">
+            <label class="label">Email:</label>
+            <div class="control" >
+                {% render_field form.email class="input"%}
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Public Key:</label>
+            <div class="control">
+                {% render_field form.public_key rows="5" class="textarea" %}
+            </div>
+          </div>
+            <div class="field is-grouped">
+                <div class="control">
+                  <button class="btn btn-success"><a href="/gen/" target="_blank" style="color: white; text-decoration: none;">Generate Keys</a></button>
+              </div>
+            </div>
+          <div class="field">
+            <label class="label">Password:</label>
+            <div class="control" >
+                {% render_field form.password class="input"%}
+            </div>
+          </div>
+            <br>
+            <div class="field">
+            <div class="control text-center" >
+                <button id="myBtn" class="btn btn-success" type="submit" style="margin: auto; padding: 10px; width: 100%;">Register</button>
+            </div>
+            </div>
+            <p class="text-center" style="margin: auto; padding: 10px; width: 80%;">Already a Member? <a href="/accounts/login/" style="text-decoration: none;"> Login</a> </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+
+{% endblock %}
