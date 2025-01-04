@@ -1,5 +1,5 @@
 # RSAcrypto
-- A web up that uses RSA encryption algorithm to encrypt and decrypt messages. Users are given control 
+- A web App that uses RSA encryption algorithm to encrypt and decrypt messages. Users are given control 
 of their keys. 
 - Public key is used to encrypt messages and private key to decrypt the cipher text. 
 - Make sure you keep a copy of your private key, you will use it to decrypt cipher text to plain text.
